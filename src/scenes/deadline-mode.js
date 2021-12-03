@@ -1,11 +1,10 @@
 import { spawnTarget, addQuitToMenuShortCut } from "../utils/game-utils";
 // This is the time of this mode in seconds
-let timeAllowed = 20;
-let currentScore = 0;
+
 const spawnRate = 0.5;
 let deadlineMode = () => {
-  timeAllowed = 20;
-  currentScore = 0;
+  let timeAllowed = 20;
+  let currentScore = 0;
   addQuitToMenuShortCut();
   cursor("crosshair");
   const score = add([text("Score: 0"), pos(24, 24)]);
