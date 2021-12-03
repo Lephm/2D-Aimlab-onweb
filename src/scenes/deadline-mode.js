@@ -1,9 +1,10 @@
-import { spawnTarget } from "../utils/game-utils";
+import { spawnTarget, addQuitToMenuShortCut } from "../utils/game-utils";
 // This is the time of this mode in seconds
-let timeAllowed = 60;
+let timeAllowed = 20;
 let currentScore = 0;
 const spawnRate = 0.5;
 let deadlineMode = () => {
+  addQuitToMenuShortCut();
   cursor("crosshair");
   const score = add([text("Score: 0"), pos(24, 24)]);
   const timeLeft = add([
@@ -44,8 +45,10 @@ let deadlineMode = () => {
   onClick("target", (target) => {
     currentScore++;
     addKaboom(target.pos);
+    burp({ volume: 0.2 });
     score.text = `Score: ${currentScore}`;
     destroy(target);
+    console.log("Hit");
   });
 };
 

@@ -23,4 +23,9 @@ const spawnTarget = () => {
   return newTarget;
 };
 
-export { spawnTarget };
+const addQuitToMenuShortCut = () => {
+  onKeyPress("q", () => {
+    go("menu");
+  });
+};
+export { spawnTarget, addQuitToMenuShortCut };
